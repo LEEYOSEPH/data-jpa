@@ -54,4 +54,8 @@ class MemberRepositoryTest {
         List<Member> result = memberRepository.findByUsername("AAA");
         assertThat(result.get(0).getUsername()).isEqualTo("AAA");
     }
+
+    @Test
+    void findUsernameList() {
+    }
 }
