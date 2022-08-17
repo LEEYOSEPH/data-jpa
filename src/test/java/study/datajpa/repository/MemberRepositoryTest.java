@@ -10,6 +10,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
+import study.datajpa.dto.MemberDto;
 import study.datajpa.entiity.Member;
 
 import java.util.List;
@@ -85,6 +86,7 @@ class MemberRepositoryTest {
         //when
         Page<Member> page = memberRepository.findByAge(age, pageRequest );
 
+        Page<MemberDto> toMap = page.map(member -> new MemberDto(member.getId(), member.getUsername(), null));
 
         //then
         List<Member> content = page.getContent();
