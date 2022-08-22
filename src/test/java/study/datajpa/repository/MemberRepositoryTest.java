@@ -218,8 +218,8 @@ class MemberRepositoryTest {
         em.flush();
         em.clear();
         //when
-        List<UsernameOnly> result =
-                memberRepository.findProjectionsByUsername("m1");
+                List<UsernameOnly> result = memberRepository.findProjectionsByUsername("m1",
+                        UsernameOnly.class);
         //then
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
